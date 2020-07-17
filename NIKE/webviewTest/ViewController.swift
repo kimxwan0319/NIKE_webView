@@ -16,19 +16,31 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loadUrl()
+        loadUrl("https://www.nike.com/kr/ko_kr/")
     }
-
-
-    func loadUrl(){
-        
-        let url = URL(string: "https://www.nike.com/kr/ko_kr/")
-        let request = URLRequest(url: url!)
+    
+    func loadUrl(_ url : String){
+        let request = URLRequest(url: URL(string: url)!)
         
         wv.load(request)
         
         wv.uiDelegate = self
         wv.navigationDelegate = self
     }
+    
+    @IBAction func cart(_ sender: Any) {
+        loadUrl("https://www.nike.com/kr/ko_kr/cart")
+    }
+    @IBAction func home(_ sender: Any) {
+        loadUrl("https://www.nike.com/kr/ko_kr/")
+    }
+
+    @IBAction func myPage(_ sender: Any) {
+        loadUrl("https://www.nike.com/kr/ko_kr/mypage")
+    }
+
+
+    
+    
 }
 
